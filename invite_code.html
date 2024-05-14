@@ -21,15 +21,15 @@
             var site1_i = document.getElementById('site1_i');
             //生成随机三位字母
             var rand_domain1 = generateRandomLetters(3);
-            site1.href =  "http://"+ rand_domain1 +".xmfvpn.info";
+            site1.href =  "http://"+ rand_domain1 +"." + site;
             site1_i.textContent=  "小蜜蜂网址（主用）";
             var rand_domain2 = generateRandomLetters(3);
             var site2 = document.getElementById('site2');
             var site2_i = document.getElementById('site2_i');
-            site2.href =  "http://"+ rand_domain2 +".xmfvpn.info";
+            site2.href =  "http://"+ rand_domain2 +"." + site;
             site2_i.textContent= " 小蜜蜂网址（备用）";
             if(invite_code){
-                var invite_url = site1.href + '/auth/register?code=' + invite_code;
+                var invite_url = site1.href + 'auth/register?code=' + invite_code;
                 var meta = document.createElement('meta');
                 meta.httpEquiv = 'refresh';
                 meta.content = '0;url=' + invite_url;
