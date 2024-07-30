@@ -10,17 +10,27 @@
     <title>小蜜蜂发布页，收藏我回家不迷路！</title>
     <script defer>
         window.onload = function (){
-            var site1 = document.getElementById('site1');
-            var site1_i = document.getElementById('site1_i');
-            //生成随机三位字母
-            var rand_domain1 = generateRandomLetters(3);
-            site1.href =  "http://"+ rand_domain1 +".xmifeng.store";
-            site1_i.textContent=  "http://"+ rand_domain1 +".xmifeng.store";
-            var rand_domain2 = generateRandomLetters(3);
-            var site2 = document.getElementById('site2');
-            var site2_i = document.getElementById('site2_i');
-            site2.href =  "http://"+ rand_domain2 +".xmifeng.store";
-            site2_i.textContent=  "http://"+ rand_domain2 +".xmifeng.store";
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://www.xiaomifengvpn.store/site.txt', true);
+            xhr.onload = function() {
+                const sitesStr = this.responseText.trim();
+                var sitesArr =  sitesStr.split("\n");
+                var useSite =  getRandomElement(sitesArr);
+
+                var site1 = document.getElementById('site1');
+                var site1_i = document.getElementById('site1_i');
+                //生成随机三位字母
+                var rand_domain1 = generateRandomLetters(3);
+
+                site1.href =  "http://"+ rand_domain1 +"." + useSite;
+                site1_i.textContent=  "http://"+ rand_domain1 +"." + useSite;
+                var rand_domain2 = generateRandomLetters(3);
+                var site2 = document.getElementById('site2');
+                var site2_i = document.getElementById('site2_i');
+                site2.href =  "http://"+ rand_domain2 +"." + useSite;
+                site2_i.textContent=  "http://"+ rand_domain2 +"." + useSite;
+            };
+            xhr.send();
         }
         function generateRandomLetters(count) {
             let result = '';
@@ -30,6 +40,14 @@
                 result += characters.charAt(Math.floor(Math.random() * charactersLength));
             }
             return result;
+        }
+
+        function readInputFile() {
+
+        }
+
+        function getRandomElement(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
         }
     </script>
     <meta name="keywords" content="小蜜蜂"/>
@@ -47,12 +65,12 @@
                     <ul>
                         <li>
                             小蜜蜂网址（主用）
-                            <a id="site1" href="http://site1.xmifeng.store" target="_blank"><i id="site1_i"></i></a>
+                            <a id="site1" href="http://site1.xmfvpn.info" target="_blank"><i id="site1_i"></i></a>
 
                             </span></span></li>
                         <li>
                             小蜜蜂网址（备用）
-                            <a id="site2" href="http://site2.xmifeng.store" target="_blank"><i id="site2_i"></i></a>
+                            <a id="site2" href="http://site2.xmfvpn.info" target="_blank"><i id="site2_i"></i></a>
 
                             </span></span></li>
                         <li>
