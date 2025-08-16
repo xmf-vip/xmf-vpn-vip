@@ -21,12 +21,12 @@
             var site1_i = document.getElementById('site1_i');
             //生成随机三位字母
             var rand_domain1 = generateRandomLetters(3);
-            site1.href =  "http://"+ rand_domain1 +"." + site;
+            site1.href =  "https://"+ rand_domain1 +"." + site;
             site1_i.textContent=  "小蜜蜂网址（主用）";
             var rand_domain2 = generateRandomLetters(3);
             var site2 = document.getElementById('site2');
             var site2_i = document.getElementById('site2_i');
-            site2.href =  "http://"+ rand_domain2 +"." + site;
+            site2.href =  "https://"+ rand_domain2 +"." + site;
             site2_i.textContent= " 小蜜蜂网址（备用）";
             if(invite_code){
                 var invite_url = site1.href + 'auth/register?code=' + invite_code;
@@ -70,10 +70,10 @@
     如已迷路点以下：
 </p>
 <p>
-    <a id="site1" href="http://site1.xmfvpn.info" target="_blank"><i id="site1_i"></i></a>
+    <a id="site1" href="https://site1.xmfvpn.info" target="_blank"><i id="site1_i"></i></a>
 </p>
 <p>
-    <a id="site2" href="http://site2.xmfvpn.info" target="_blank"><i id="site2_i"></i></a>
+    <a id="site2" href="https://site2.xmfvpn.info" target="_blank"><i id="site2_i"></i></a>
 </p>
 <p>
     <a href="https://t.me/xmfvpn" target="_blank"><i> 电报群</i></a>
